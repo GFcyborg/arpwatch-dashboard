@@ -1,0 +1,29 @@
+<ion-view view-title=""Agent {{agentId_DOM}}, message #{{msgId_DOM}}:"">
+  <ion-content>
+    <div class="list card">
+      <div class="item">
+        <h3>{{msg_DOM.ip}}</h3>
+        <h2>{{msg_DOM.timestamp}}</h2>
+        <p>{{msg_DOM.lvl}}</p>
+        <p>{{msg_DOM.type}}</p>
+      </div>
+      <div class="item item-body">
+        <p>{{msg_DOM.origMsg}}</p>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item">
+          <i class="icon ion-thumbsup"></i>
+          Like
+        </a>
+        <a class="tab-item">
+          <i class="icon ion-chatbox"></i>
+          Comment
+        </a>
+        <a class="tab-item">
+          <i class="icon ion-share"></i>
+          Share
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

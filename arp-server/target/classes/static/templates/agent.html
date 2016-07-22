@@ -1,0 +1,32 @@
+<ion-view view-title="Agent {{agentId_DOM}}:">
+  <ion-content>
+    <ion-list>
+    
+    	<ion-item style="background-color: lightgrey;">
+    		<div class="row header" align="center">
+    			<div class="col-20" style="background-color: pink; border: 1px solid;" ng-click="orderByMe('timestamp')">	<b>Timestamp:</b>	<br><br></div>
+                <div class="col-20" style="background-color: lightblue;border: 1px solid;" ng-click="orderByMe('type')">		<b>Type:</b></div>
+                <div class="col-20" style="background-color: lightgreen; border: 1px solid;" ng-click="orderByMe('lvl')">		<b>Level:</b></div>
+                <div class="col-40" style="background-color: yellow; border: 1px solid;" 	ng-click="orderByMe('origMsg')">	<b>Message:</b></div>
+    		</div>
+        </ion-item>
+        <div align="right" class="col-90">
+        	<input type="text" size="17"  style="background-color: yellow; border: 1px solid; display: inline; " 
+        		placeholder="here your search pattern..."
+        		ng-model="mysearch" ng-change="scrollTop();">
+        	<br>
+        </div>
+        <ion-item 
+        	ng-repeat="msg in agent_DOM | orderBy:myOrder:myflipflop | filter:mysearch " 
+        	ng-init="orderByMe('timestamp')" href="#/AW/agents/{{agentId_DOM}}/{{msg.msgId}}">
+            <h5 class="row" align="center">
+    			<div class="col-20">{{msg.timestamp}}</div>
+                <div class="col-20"><b>{{msg.type}}</b></div>
+	    		<div class="col-20">{{msg.lvl}}</div>
+	    		<div class="col-40" align="left">{{msg.origMsg}}</div>
+			</h5>
+        </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,28 @@
+<ion-view view-title="All Agents">
+  <ion-content>
+    <ion-list>
+    
+    	<ion-item style="background-color: lightgrey;">
+    		<div class="row">
+    			<div class="col-25"><b>Last-activity:</b></div>
+	    		<div class="col-20"><b>Hosts:</b></div>
+                <div class="col-25"><b>MAC-addr:</b></div>
+                <div class="col-20"><b>IP-addr:</b></div>
+	    		<div class="col-10"><b>Event#:</b></div>
+    		</div>
+        </ion-item>
+
+        <ion-item ng-repeat="agent in agents_DOM | orderBy:'agentId' "
+            href="#/AW/agents/{{agent.agentId}}">
+            <div class="row">
+    			<h3 class="col-25">{{agent.lastActivity}}</h3>
+	    		<h3 class="col-20"><b>{{agent.agentId}}</b></h3>
+                <h3 class="col-25">{{agent.mac}}</h3>
+	    		<h3 class="col-20">{{agent.ip}}</h3>
+	    		<h3 class="col-10" align="center"><b>{{agent.events.length}}</b></h3>
+			</div>
+        </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>
